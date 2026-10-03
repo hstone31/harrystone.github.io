@@ -1,0 +1,138 @@
+/* ---------- Theme ---------- */
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #22272b;
+  --muted: #5d666d;
+  --rule: #e4e1d9;
+  --accent: #2f6b5a;        /* forest green */
+  --accent-soft: #e6f0ec;
+  --max: 760px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15191b;
+    --surface: #1c2124;
+    --text: #e6e8e6;
+    --muted: #9aa4a8;
+    --rule: #2c3337;
+    --accent: #7cc4ab;
+    --accent-soft: #1f2e29;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+  font-weight: 600;
+}
+h1 { font-size: 2.1rem; margin: 0 0 .4rem; }
+h2 { font-size: 1.4rem; margin: 2.4rem 0 .8rem; padding-bottom: .3rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .3rem; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: currentColor; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+}
+.site-header .inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+}
+.site-title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.site-title:hover { border-bottom-color: transparent; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; }
+nav a { color: var(--muted); font-size: .97rem; }
+nav a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+
+/* ---------- Main ---------- */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem 16px 4rem;
+}
+.lede { font-size: 1.12rem; color: var(--muted); margin-top: 0; }
+
+/* About page intro */
+.intro { display: flex; gap: 2rem; align-items: flex-start; }
+.intro img {
+  width: 180px; height: 180px; flex: none;
+  object-fit: cover; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--accent-soft);
+}
+.contact { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: .95rem; }
+
+@media (max-width: 600px) {
+  .intro { flex-direction: column; align-items: center; text-align: center; }
+  .contact { justify-content: center; }
+  h1 { font-size: 1.75rem; }
+}
+
+/* Cards (research projects, courses) */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  margin: 1rem 0;
+}
+.card h3 { margin-top: 0; }
+.meta { color: var(--muted); font-size: .92rem; margin: .1rem 0 .6rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+.tag { font-size: .8rem; background: var(--accent-soft); color: var(--accent); padding: .1rem .55rem; border-radius: 999px; }
+
+/* Publications */
+.pubs { padding-left: 1.2rem; }
+.pubs li { margin-bottom: .8rem; }
+.me { font-weight: 600; }
+
+/* CV */
+.cv-actions { margin: 1rem 0 1.5rem; }
+.button {
+  display: inline-block;
+  background: var(--accent); color: var(--bg);
+  padding: .5rem 1rem; border-radius: 6px; font-weight: 600;
+}
+.button:hover { opacity: .9; border-bottom-color: transparent; }
+.cv-embed { width: 100%; height: 80vh; border: 1px solid var(--rule); border-radius: 6px; }
+.cv-entry { display: grid; grid-template-columns: 7.5rem 1fr; gap: .2rem 1rem; margin: .6rem 0; }
+.cv-entry .when { color: var(--muted); font-size: .92rem; }
+@media (max-width: 600px) { .cv-entry { grid-template-columns: 1fr; } }
+
+.todo { background: #fff4d6; color: #6b5200; padding: 0 .25rem; border-radius: 3px; }
+@media (prefers-color-scheme: dark) { .todo { background: #3a3215; color: #f0d98a; } }
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: .85rem;
+  text-align: center;
+  padding: 1.5rem 16px;
+}
